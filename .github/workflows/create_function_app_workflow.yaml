@@ -33,7 +33,7 @@ jobs:
         echo "AZURE_ACR_NAME=${AZURE_ACR_NAME_PREFIX}${AZURE_DEPLOY_ENVIRONMENT}" >> $GITHUB_ENV
         echo "AZURE_FUNCTION_APP_IMAGE_NAME=${GITHUB_REPO_NAME}-${AZURE_DEPLOY_ENVIRONMENT}" >> $GITHUB_ENV
         echo "AZURE_STORAGE_ACCOUNT=${AZURE_STORAGE_ACCOUNT_NAME_PREFIX}${AZURE_STORAGE_ACCOUNT_NAME}" >> $GITHUB_ENV
-        echo "AZURE_CLIENT_ID=echo "::add-mask::${{ github.event.client_payload.client_id }}"" >> $GITHUB_ENV
+        echo "AZURE_CLIENT_ID=$(echo "::add-mask::${{ github.event.client_payload.client_id }}")" >> $GITHUB_ENV
 
     - name: Checkout Code
       uses: actions/checkout@v2
